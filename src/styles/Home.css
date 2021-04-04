@@ -1,0 +1,76 @@
+.top {
+  width: 100vw;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top img {
+  width: 120px;
+  margin-left: 20px;
+
+}
+
+.logoutBtn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin-right: 25px;
+}
+
+.addNaver {
+  margin-right: 30px;
+  border: none;
+  height: 35px;
+  width: 130px;
+  color: white;
+  background-color: #212121;
+}
+
+.top h1 {
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.naver {
+  /* border: red solid 2px; */
+  width: 300px;
+  height: 420px;
+}
+
+.navers {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.naver img {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.naver p {
+  margin: 7px 0;
+  font-weight: 400;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+/* @media screen and (min-width: 500px) and (max-width: 1200px) {
+  .navers {
+    width: 99vw;
+    justify-content: space-evenly;
+
+  }
+} */
+
+@media screen and (min-width: 600px) {
+  .navers {
+    width: 99vw;
+    /* display: flex; */
+    justify-content: space-evenly;
+
+  }
+}
