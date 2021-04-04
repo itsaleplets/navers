@@ -10,7 +10,7 @@ function NaversProvider({ children }) {
 }
 
 NaversProvider.propTypes = {
-  children: propTypes.func.isRequired,
+  children: propTypes.object.isRequired,
 };
 
 export default NaversProvider;

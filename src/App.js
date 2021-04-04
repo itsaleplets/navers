@@ -1,10 +1,12 @@
 import Provider from './context/Provider'
 import './App.css';
+// import Login from './pages/Login';
+import Routes from './routes';
 
 function App() {
   return (
     <Provider>
-      <div>oi</div>
+      <Routes />
     </Provider> 
   );
 }
