@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ImBin2 } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
@@ -9,7 +9,7 @@ import naver from '../images/naver.png';
 
 function Home() {
   const history = useHistory();
-  const [deleteModal, setDeleteModal] = useState(false);
+  // const [deleteModal, setDeleteModal] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   // const { token } = useContext(NaversContext);
 

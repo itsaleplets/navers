@@ -1,11 +1,11 @@
 import '../styles/Login.css';
 import logo from '../images/logo.png';
-import { useContext, useState } from 'react';
-import login from '../services/api';
+import { useEffect, useState } from 'react';
+import { login } from '../services/api';
 // import getTest from '../services/api';
 
 import { useHistory } from 'react-router-dom';
-import NaversContext from '../context/NaversContext';
+// import NaversContext from '../context/NaversContext';
 
 function Login() {
   const history = useHistory()
@@ -13,6 +13,10 @@ function Login() {
   const [password, setPassword] = useState('');
   const [loginInvalid, setLoginInvalid] = useState(false);
   // const { getToken } = useContext(NaversContext);
+
+  useEffect(() => {
+    localStorage.clear()
+  }, []);
 
   const clickHandler = async () => {
     const { token } = await login(email, password); 
@@ -34,13 +38,13 @@ function Login() {
           <label>E-mail</label>
           <input
             placeholder="E-mail"
-            onChange={({target}) => setEmail(target.value)}
+            onChange={({ target }) => setEmail(target.value)}
           />
           <label>Senha</label>
           <input
             placeholder="Senha"
             type="password"
-            onChange={({target}) => setPassword(target.value)}
+            onChange={({ target }) => setPassword(target.value)}
           />
           <button type="button" onClick={clickHandler}>
             Entrar
