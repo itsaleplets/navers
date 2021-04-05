@@ -1,20 +1,24 @@
 import '../styles/Login.css';
 import logo from '../images/logo.png';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import login from '../services/api';
+// import getTest from '../services/api';
+
 import { useHistory } from 'react-router-dom';
+import NaversContext from '../context/NaversContext';
 
 function Login() {
   const history = useHistory()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginInvalid, setLoginInvalid] = useState(false);
+  // const { getToken } = useContext(NaversContext);
 
   const clickHandler = async () => {
-    const loginRes = await login(email, password); 
-    if(loginRes) {
-      const { token } = loginRes.baerer;
-      localStorage.setItem('token', token )
+    const { token } = await login(email, password); 
+    if(token) {
+      localStorage.setItem('token', token );
+      // getToken(token);
       history.push('/')
     } else {
       setLoginInvalid(true);

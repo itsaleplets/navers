@@ -56,6 +56,19 @@
 
 .icon {
   margin-right: 10px;
+  /* border: red solid 2px; */
+}
+
+.details {
+  background-color: white;
+}
+
+.naverInfo p {
+  font-weight: 400;
+}
+
+.name {
+  font-size: 24px;
 }
 
 /* @media screen and (min-width: 500px) and (max-width: 1200px) {
@@ -71,6 +84,13 @@
     width: 99vw;
     /* display: flex; */
     justify-content: space-evenly;
+  }
 
+  .details {
+    display: flex;
+  }
+
+  .naverInfo {
+    margin-left: 10px;
   }
 }
