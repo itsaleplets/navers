@@ -2,42 +2,71 @@ import { useState } from 'react';
 import { ImBin2 } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 import '../styles/NaverCard.css';
-// import '../styles/Home.css';
-
-// import naverImg from '../images/naver.png';
+import DeleteModal from './DeleteModal';
 import NaverDetails from './NaverDetails';
+import { deleteNaver }from '../services/api';
+import ModalFeedback from './ModalFeedback';
+import '../styles/DeleteModal.css';
 
 function NaverCard({ naver, handleOpacity }) {
   const [modal, setModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [deletedFeedback, setDeletedFeedback] = useState(false);
+  const [details, setDetails] = useState(false);
 
-  const deleteNaver = () => {
-    console.log('ok')
-  }
+  const deleteNaverModal = async (id) => {
+    setDeleteModal(true);
+    handleModal();
+  };
+
+  const getApiDelete = async (token, id) => {
+    const data = await deleteNaver(token, id);
+    setDeletedFeedback(data.deleted);
+    if(data.deleted) {
+      setDeleteModal(false);
+      setDeletedFeedback(true);
+    };
+  };
 
   const handleModal = () => {
+    handleOpacity()
     if(!modal) {
       document.body.style.background = 'rgb(0, 0, 0, 0.5)';
-      setModal(!modal);
-    } else {
-      document.body.style.background = 'none';
-      setModal(!modal);
-    }
-    handleOpacity()
-  }
-  // console.log(naver)
+      return setModal(!modal);
+    };
+    document.body.style.background = 'none';
+    setModal(!modal);
+  };
+
+  const showDetails = () => {
+    setDetails(!details);
+    handleModal();
+  };
+
   return (
     <section className="navCard">
+      {deletedFeedback && 
+      <ModalFeedback handleModal={handleModal} setDeletedFeedback={setDeletedFeedback} />
+      }
+      {deleteModal && 
+       <DeleteModal
+        id={naver.id}
+        getApiDelete={getApiDelete}
+        setDeleteModal={setDeleteModal}
+        handleModal={handleModal}
+        deletedFeedback={deletedFeedback}
+      />
+      }
       <div
         key={naver.id}
         className="naver"
-        onClick={handleModal}
       >
-        <img src={naver.url} alt=""/>
+        <img onClick={showDetails} src={naver.url} alt=""/>
         <span>{naver.name}</span>
         <p>{naver.job_role}</p>
-        <ImBin2 onClick={deleteNaver} className="icon" />
+        <ImBin2 onClick={deleteNaverModal} className="icon" />
         <MdEdit className="icon" size={18} />
-        {modal && <NaverDetails naver={naver} handleModal={handleModal}/>}
+        {details && <NaverDetails naver={naver} showDetails={showDetails}/>}
       </div>
     </section>
   );

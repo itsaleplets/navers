@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://navedex-api.herokuapp.com/v1/';
+const baseURL = 'https://navedex-api.herokuapp.com/v1';
 
 const login = async (email, password) => axios
 .post(`${baseURL}/users/login`, {
@@ -10,11 +10,17 @@ const login = async (email, password) => axios
 .catch((err) => err);
 
 const showNavers = async (token) => axios
-.get('https://navedex-api.herokuapp.com/v1/navers/', { headers: { Authorization: `Bearer ${token}` } } )
+.get(`${baseURL}/navers`, { headers: { Authorization: `Bearer ${token}` } } )
 .then(res => res.data)
 .catch((err) => err);
 
+const deleteNaver = async (token, id) => axios
+.delete(`${baseURL}/navers/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+.then(res => res.data)
+.catch(err => err);
+
 export {
   login,
-  showNavers
+  showNavers,
+  deleteNaver
 };

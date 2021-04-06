@@ -33,10 +33,6 @@ function Home() {
     window.location.reload();
   };
 
-  // const deleteNaver = () => {
-  //   console.log('ok')
-  // }
-
   const handleOpacity = () => {
     setOpacity(!opacity);
   };
@@ -63,13 +59,13 @@ function Home() {
         </button>
       </div>
       <section className="navers">
-        {navers && navers.map((naver) => (
+        {navers ? navers.map((naver) => (
           <NaverCard
             key={naver.id}
             naver={naver}
             handleOpacity={handleOpacity}
           />
-        ))}
+        )) : <h1>Loading...</h1>}
       </section>
     </section>
   );

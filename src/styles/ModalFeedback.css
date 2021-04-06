@@ -1,0 +1,49 @@
+.modalFeedback {
+  background-color: white;
+  position: absolute;
+  height: 120px;
+  width: 300px;
+  border: solid 1px #212121;
+}
+
+.modalFeedback p {
+  font-weight: 400;
+  margin: 25px 15px;
+}
+
+.modalFeedback h1 {
+  font-size: 24px;
+  margin: 20px 15px;
+}
+
+.closeFeedback {
+  position: absolute;
+  top: 24px;
+  right: 15px;
+}
+
+@media screen and (min-width: 700px) {
+  /* .details {
+    display: flex;
+    width: 70vw;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+  }
+
+  .details section p {
+    margin: 5% 0;
+  }
+
+  .detailsIcon {
+    position: absolute;
+    bottom: 15px
+  }
+  
+  .details img {
+    width: 100%;
+    height: 100%;
+  } */
+}

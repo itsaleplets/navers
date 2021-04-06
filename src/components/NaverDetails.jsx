@@ -3,9 +3,9 @@ import { ImBin2 } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import '../styles/NaverDetails.css';
-// import naverImg from '../images/naver.png';
 
-function NaverCard({ naver, handleModal }) {
+
+function NaverCard({ naver, showDetails }) {
   const [age, setAge] = useState('');
   const [companyTime, setCompanyTime] = useState('');
 
@@ -21,7 +21,6 @@ function NaverCard({ naver, handleModal }) {
 
   const calculateDate = (date) => {
     const newDate = new Date(date);
-    // console.log('calculate')
     return (Math.floor((Date.now() - newDate) / (31557600000)));
   }
 
@@ -33,7 +32,7 @@ function NaverCard({ naver, handleModal }) {
           <span className="name">{naver.name}</span>
           <MdClose
             size={20}
-            onClick={handleModal}
+            onClick={showDetails}
           />
         </div>
         <p>{naver.job_role}</p>
