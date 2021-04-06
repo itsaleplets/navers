@@ -1,0 +1,53 @@
+.naver {
+  width: 300px;
+  height: 420px;
+}
+
+.navCard {
+  position: relative;
+}
+
+.naver img {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.naver p {
+  margin: 7px 0;
+  font-weight: 400;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.naverInfo {
+  margin: 10px;
+}
+
+.naverInfo p {
+  font-weight: 400;
+}
+
+.name {
+  font-size: 24px;
+}
+
+@media screen and (min-width: 700px) {
+  .navers {
+    width: 99vw;
+    justify-content: space-evenly;
+  }
+  .naver img {
+    margin-bottom: 0px;
+  }
+
+  .navCard {
+    position:unset;
+  }
+
+  .naverInfo {
+    margin-left: 10px;
+    width: 100%;
+  }
+}

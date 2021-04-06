@@ -5,10 +5,21 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .top img {
   width: 120px;
   margin-left: 20px;
+}
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo span {
+  font-weight: 800;
+  margin-left: 5px;
 }
 
 .logoutBtn {
@@ -27,13 +38,16 @@
   background-color: #212121;
 }
 
+.btn {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 .top h1 {
   margin-left: 20px;
   font-size: 40px;
 }
 
 .naver {
-  /* border: red solid 2px; */
   width: 300px;
   height: 420px;
 }
@@ -44,53 +58,19 @@
   flex-wrap: wrap;
 }
 
-.naver img {
-  width: 300px;
-  margin-bottom: 10px;
-}
+@media screen and (min-width: 700px) {
 
-.naver p {
-  margin: 7px 0;
-  font-weight: 400;
-}
-
-.icon {
-  margin-right: 10px;
-  /* border: red solid 2px; */
-}
-
-.details {
-  background-color: white;
-}
-
-.naverInfo p {
-  font-weight: 400;
-}
-
-.name {
-  font-size: 24px;
-}
-
-/* @media screen and (min-width: 500px) and (max-width: 1200px) {
-  .navers {
-    width: 99vw;
-    justify-content: space-evenly;
-
-  }
-} */
-
-@media screen and (min-width: 600px) {
-  .navers {
-    width: 99vw;
-    /* display: flex; */
-    justify-content: space-evenly;
-  }
-
-  .details {
+  /* .details {
     display: flex;
-  }
-
+  } */
+/* 
   .naverInfo {
     margin-left: 10px;
+  }*/
+  .navers {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: none;
   }
-}
+} 
