@@ -4,7 +4,7 @@ import { MdEdit } from "react-icons/md";
 import '../styles/NaverCard.css';
 // import '../styles/Home.css';
 
-import naverImg from '../images/naver.png';
+// import naverImg from '../images/naver.png';
 import NaverDetails from './NaverDetails';
 
 function NaverCard({ naver, handleOpacity }) {
@@ -24,7 +24,7 @@ function NaverCard({ naver, handleOpacity }) {
     }
     handleOpacity()
   }
-
+  // console.log(naver)
   return (
     <section className="navCard">
       <div
@@ -32,7 +32,7 @@ function NaverCard({ naver, handleOpacity }) {
         className="naver"
         onClick={handleModal}
       >
-        <img src={naverImg} alt=""/>
+        <img src={naver.url} alt=""/>
         <span>{naver.name}</span>
         <p>{naver.job_role}</p>
         <ImBin2 onClick={deleteNaver} className="icon" />
