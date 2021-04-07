@@ -18,8 +18,10 @@ function DeleteModal({id, setDeleteModal, handleModal, getApiDelete }) {
     <div className='deleteModal'>
         <h1>Excluir Naver</h1>
         <p>Tem certeza que deseja excluir este Naver?</p>
-        <button onClick={cancel}>Cancelar</button>
-        <button onClick={() => getApiDelete(token, id)}>Excluir</button>
+        <div>
+          <button onClick={cancel}>Cancelar</button>
+          <button onClick={() => getApiDelete(token, id)}>Excluir</button>
+        </div>
     </div>
   );
 }
