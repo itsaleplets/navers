@@ -1,18 +1,22 @@
 import '../styles/ModalFeedback.css';
 import { MdClose } from "react-icons/md";
 import '../styles/DeleteModal.css';
+import { useContext } from 'react';
+import NaversContext from '../context/NaversContext';
 
-function NaverCard({ handleModal, setDeletedFeedback  }) {
-
+function NaverCard({ feedback }) {
+  const { handleModal } = useContext(NaversContext);
+  const { title, msg, state } = feedback;
   const handleClick = () => {
     handleModal();
-    setDeletedFeedback(false);
+    state(false);
   }
+  
   return (
       <div className='modalFeedback'>
-        <h1>Naver excluído</h1>
+        <h1>{title}</h1>
         <MdClose onClick={handleClick} size={20} className="closeFeedback" />
-        <p>Naver excluído com sucesso!</p>
+        <p>{msg}</p>
       </div> 
   );
 }

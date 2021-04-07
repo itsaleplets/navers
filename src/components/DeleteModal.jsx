@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import NaversContext from '../context/NaversContext';
 import '../styles/DeleteModal.css';
 
-function DeleteModal({id, setDeleteModal, handleModal, getApiDelete }) {
+function DeleteModal({id, setDeleteModal, getApiDelete }) {
   const [token, setToken] = useState('');
-
+  const { handleModal } = useContext(NaversContext);
+  
   useEffect(() => {
     const getToken = localStorage.getItem('token');
     setToken(getToken)

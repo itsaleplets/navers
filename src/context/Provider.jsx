@@ -3,16 +3,31 @@ import { useState } from 'react';
 import NaversContext from './NaversContext';
 
 function NaversProvider({ children }) {
-  const [token, setToken] = useState('');
+  const [opacity, setOpacity] = useState(false);
+  const [modal, setModal] = useState(false);
 
-  const getToken = (token) => {
-    setToken(token);
-    // console.log(token);
+  const handleOpacity = () => {
+    setOpacity(!opacity);
+  };
+
+  const handleModal = () => {
+    handleOpacity()
+    if(!modal) {
+      document.body.style.background = 'rgb(0, 0, 0, 0.5)';
+      // document.oninput.style.background = 'black';
+      
+      return setModal(!modal);
+    };
+    document.body.style.background = 'none';
+    // document.input.style.background = 'none';
+    setModal(!modal);
   };
 
   const values = {
-    getToken,
-    token,
+    handleOpacity,
+    handleModal,
+    modal,
+    opacity,
   }
 
   return (

@@ -1,13 +1,15 @@
-import {  useEffect, useState } from 'react';
+import {  useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import '../styles/Home.css';
-import logo from '../images/logo.png';
 import { showNavers } from '../services/api';
 import NaverCard from '../components/NaverCard';
+import Header from '../components/Header';
+import NaversContext from '../context/NaversContext';
 
 function Home() {
   const history = useHistory();
-  const [opacity, setOpacity] = useState(false);
+  const { handleOpacity, opacity } = useContext(NaversContext);
+  // const [opacity, setOpacity] = useState(false);
   const [navers, setNavers] = useState('');
 
   useEffect(() => {
@@ -20,7 +22,6 @@ function Home() {
 
   const getNavers = async (token) => {
     const data = await showNavers(token);
-    console.log(data);
     setNavers(data);
   };
 
@@ -28,27 +29,13 @@ function Home() {
     history.push('/adicionar');
   };
 
-  const logout = () => {
-    localStorage.removeItem('token');
-    window.location.reload();
-  };
-
-  const handleOpacity = () => {
-    setOpacity(!opacity);
-  };
+  // const handleOpacity = () => {
+  //   setOpacity(!opacity);
+  // };
 
   return (
     <section className="body home">
-      <div className="top">
-          <img src={logo} alt="nave.rs black rocket" />
-        <button
-         type="button"
-          className="logoutBtn"
-          onClick={logout}
-        >
-          Sair
-        </button>
-      </div>
+      <Header />
       <div className="top">
         <h1>Navers</h1>
         <button
@@ -63,7 +50,7 @@ function Home() {
           <NaverCard
             key={naver.id}
             naver={naver}
-            handleOpacity={handleOpacity}
+            // handleOpacity={handleOpacity}
           />
         )) : <h1>Loading...</h1>}
       </section>
