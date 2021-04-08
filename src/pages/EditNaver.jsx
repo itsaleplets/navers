@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { createNaver } from '../services/api';
 import ModalFeedback from '../components/ModalFeedback';
 import NaverForm from '../components/NaverForm';

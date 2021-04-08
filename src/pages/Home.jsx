@@ -8,17 +8,16 @@ import NaversContext from '../context/NaversContext';
 
 function Home() {
   const history = useHistory();
-  const { handleOpacity, opacity } = useContext(NaversContext);
-
+  const { opacity, updateCards } = useContext(NaversContext);
   const [navers, setNavers] = useState('');
-
+  
   useEffect(() => {
     const token = localStorage.getItem('token');
     if(!token) {
       history.push('/login')
     }
     getNavers(token);
-  }, [history]);
+  }, [updateCards, history]);
 
   const getNavers = async (token) => {
     const data = await showNavers(token);

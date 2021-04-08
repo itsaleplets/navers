@@ -5,11 +5,12 @@ import { useContext } from 'react';
 import NaversContext from '../context/NaversContext';
 
 function NaverCard({ feedback }) {
-  const { handleModal } = useContext(NaversContext);
+  const { handleModal, updateCards, setUpdateCards } = useContext(NaversContext);
   const { title, msg, state } = feedback;
   const handleClick = () => {
     handleModal();
     state(false);
+    setUpdateCards(!updateCards);
   }
   
   return (

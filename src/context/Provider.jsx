@@ -5,7 +5,7 @@ import NaversContext from './NaversContext';
 function NaversProvider({ children }) {
   const [opacity, setOpacity] = useState(false);
   const [modal, setModal] = useState(false);
-
+  const [updateCards, setUpdateCards] = useState(true);
   const handleOpacity = () => {
     setOpacity(!opacity);
   };
@@ -14,12 +14,9 @@ function NaversProvider({ children }) {
     handleOpacity()
     if(!modal) {
       document.body.style.background = 'rgb(0, 0, 0, 0.5)';
-      // document.oninput.style.background = 'black';
-      
       return setModal(!modal);
     };
     document.body.style.background = 'none';
-    // document.input.style.background = 'none';
     setModal(!modal);
   };
 
@@ -28,6 +25,8 @@ function NaversProvider({ children }) {
     handleModal,
     modal,
     opacity,
+    updateCards,
+    setUpdateCards
   }
 
   return (

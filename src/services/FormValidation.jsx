@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 const required = 'Esse campo é obrigatório';
-const date = 'A data deve ter o formato dd/mm/aaaa';
+const date = 'A data deve ter o formato mm/dd/aaaa';
 
 const FormValidation = yup.object({
   job_role: yup.string()

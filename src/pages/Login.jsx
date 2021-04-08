@@ -1,18 +1,17 @@
 import '../styles/Login.css';
 import logo from '../images/logo.png';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { login } from '../services/api';
-// import getTest from '../services/api';
 
 import { useHistory } from 'react-router-dom';
-// import NaversContext from '../context/NaversContext';
+import NaversContext from '../context/NaversContext';
 
 function Login() {
   const history = useHistory()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginInvalid, setLoginInvalid] = useState(false);
-  // const { getToken } = useContext(NaversContext);
+  const { getToken } = useContext(NaversContext);
 
   useEffect(() => {
     localStorage.clear()
