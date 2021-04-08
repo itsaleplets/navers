@@ -14,8 +14,6 @@ function AddNaver() {
   const { handleModal } = useContext(NaversContext);
   const [created, setCreated] = useState(false);
   const [token, setToken] = useState(false);
-  // const [inputBg, setInputBg] = useState(false);
-
 
   const feedback = {
     state: setCreated,
@@ -33,10 +31,9 @@ function AddNaver() {
     if(response) {
       setCreated(true);
       handleModal();
-      // setInputBg(true);
-    }
+    };
   };
-  console.log(created);
+
   return (
     <section className="body home">
       <Header />

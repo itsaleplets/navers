@@ -26,7 +26,9 @@ function NaverCard({ naver, showDetails }) {
 
   return (
     <div className="details">
-      <img src={naver.url} alt=""/>
+      <div>
+        <img style={{width:'100%', height:'100%'}} src={naver.url} alt=""/>
+      </div>
       <section className="naverInfo">
         <div className="close">
           <span className="name">{naver.name}</span>
@@ -35,13 +37,16 @@ function NaverCard({ naver, showDetails }) {
             onClick={showDetails}
           />
         </div>
-        <p>{naver.job_role}</p>
-        <span>Idade</span>
-        <p>{age}</p>
-        <span>Tempo de empresa</span>
-        <p>{`${companyTime} anos`}</p>
-        <span>Projetos que participou</span>
-        <p>{naver.project}</p>
+        <div className="naverDetails">
+          <p>{naver.job_role}</p>
+          <span>Idade</span>
+          <p>{age}</p>
+          <span>Tempo de empresa</span>
+          <p>{`${companyTime} anos`}</p>
+          <span>Projetos que participou</span>
+          <p>{naver.project}</p>
+        </div>
+
         <div className="detailsIcon">
           <ImBin2
             onClick={deleteNaver}

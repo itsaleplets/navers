@@ -59,14 +59,6 @@
 }
 
 @media screen and (min-width: 700px) {
-
-  /* .details {
-    display: flex;
-  } */
-/* 
-  .naverInfo {
-    margin-left: 10px;
-  }*/
   .navers {
     display: flex;
     justify-content: center;

@@ -45,16 +45,14 @@
   .createForm {
     display: flex;
     width: 750px;
-    /* border: solid 2px black; */
     justify-content: space-evenly;
   }
   
   .formBtn {
-    margin: 0 30px 20px 75%;
+    margin-left: 75%;
   }
   
   .add {
     margin-left: -415px;
   }
-
 }
