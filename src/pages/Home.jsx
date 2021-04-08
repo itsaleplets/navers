@@ -9,7 +9,7 @@ import NaversContext from '../context/NaversContext';
 function Home() {
   const history = useHistory();
   const { handleOpacity, opacity } = useContext(NaversContext);
-  // const [opacity, setOpacity] = useState(false);
+
   const [navers, setNavers] = useState('');
 
   useEffect(() => {
@@ -29,10 +29,6 @@ function Home() {
     history.push('/adicionar');
   };
 
-  // const handleOpacity = () => {
-  //   setOpacity(!opacity);
-  // };
-
   return (
     <section className="body home">
       <Header />
@@ -50,7 +46,6 @@ function Home() {
           <NaverCard
             key={naver.id}
             naver={naver}
-            // handleOpacity={handleOpacity}
           />
         )) : <h1>Loading...</h1>}
       </section>

@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import { ImBin2 } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 import { deleteNaver }from '../services/api';
@@ -10,16 +11,19 @@ import '../styles/DeleteModal.css';
 import NaversContext from '../context/NaversContext';
 
 function NaverCard({ naver }) {
+  const history = useHistory();
   const { handleModal } = useContext(NaversContext);
   const [deleteModal, setDeleteModal] = useState(false);
   const [deletedFeedback, setDeletedFeedback] = useState(false);
   const [details, setDetails] = useState(false);
+  
   const feedback = {
     state: setDeletedFeedback,
     title: 'Naver excluído',
     msg: 'Naver excluído com sucesso"'
   }
-  const deleteNaverModal = async (id) => {
+
+  const deleteNaverModal = async () => {
     setDeleteModal(true);
     handleModal();
   };
@@ -59,7 +63,7 @@ function NaverCard({ naver }) {
         <span>{naver.name}</span>
         <p>{naver.job_role}</p>
         <ImBin2 onClick={deleteNaverModal} className="icon" />
-        <MdEdit className="icon" size={18} />
+        <MdEdit onClick={() => history.push('/editar', {id: naver.id})} className="icon" size={18} />
         {details && <NaverDetails naver={naver} showDetails={showDetails}/>}
       </div>
     </section>

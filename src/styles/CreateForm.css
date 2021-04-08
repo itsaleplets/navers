@@ -1,4 +1,4 @@
-/* .createForm div {
+.createForm div {
   display: flex;
   flex-direction: column;
 }
@@ -27,12 +27,12 @@
 }
 
 .add {
-  margin: 40px 0 30px -75px;
+  margin: 40px 0 30px -110px;
   display: flex;
 }
 
 .add h1 {
-  margin: 0 0 0 10px;
+  margin: 3px 0 0 10px;
 }
 
 .errorMsg {
@@ -53,6 +53,6 @@
   }
   
   .add {
-    margin-left: -415px;
+    margin-left: -460px;
   }
-} */
+}

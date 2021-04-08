@@ -24,9 +24,15 @@ const createNaver = async (token, values) => axios
 .then(res => res.data)
 .catch(err => err);
 
+const editNaver = async (token, values, id) => axios
+.put(`${baseURL}/navers/${id}`, values, { headers: { Authorization: `Bearer ${token}` } })
+.then(res => res.data)
+.catch(err => err);
+
 export {
   login,
   showNavers,
   deleteNaver,
   createNaver,
+  editNaver
 };

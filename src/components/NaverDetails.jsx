@@ -4,7 +4,6 @@ import { MdEdit } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import '../styles/NaverDetails.css';
 
-
 function NaverCard({ naver, showDetails }) {
   const [age, setAge] = useState('');
   const [companyTime, setCompanyTime] = useState('');
