@@ -12,7 +12,7 @@ Aqui você poderá adicionar navers de sua preferência, editar os que já exist
 
 Bom, a parte front-end do projeto foi construída em React com ContextAPI para genrenciamento de estado, e componentes funcionais com HOOKs.
 
-Além disso usei bibliotecas como:
+Além disso, usei bibliotecas como:
 
 <li>React Icon</li>
 <li>Formik</li>
