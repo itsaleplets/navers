@@ -26,7 +26,7 @@ E então, vamos tentar rodar na sua máquina?
 ```
 npm install
 ```
-### `Iniciar o Servidor: 💆‍♀️`
+### `Iniciar o Servidor: `
 Depois de ter as dependências instaladas, é só digitar npm start e voilà! 💫🧙‍♀️
 ```
 npm start
@@ -41,6 +41,4 @@ CSS, o que dizer? Só quem viveu sabe...
 A parte de fazer o modal foi um desafio, mas no final consegui achar uma solução que resolvesse o problema. Assim como a lógica de aplicar o modal em cada componente/rota.
 No final ainda ficou faltando a solução para aparecer o modal ao excluir um naver, a partir do componente Details. Tentei algumas soluções, mas por hora todas resolviam o problema de forma parcial. Por conta disso preferi remover essa funcionalidade, para que o usuário não tenha uma experiência ruim na aplicação e subir uma atualização assim que resolver o problema como um todo.
 
-```
-Obrigada pela visita! 🙋‍♀️
-```
+### `Obrigada pela visita! 🙋‍♀️
