@@ -1,8 +1,9 @@
 import { Formik } from 'formik';
-import FormValidation from '../services/FormValidation'
-import '../styles/AddNaver.css';
 import { FiChevronLeft } from "react-icons/fi";
 import { useHistory } from 'react-router-dom';
+import FormValidation from '../services/FormValidation'
+import propTypes from 'prop-types'
+import '../styles/AddNaver.css';
 import '../styles/CreateForm.css';
 
 function NaverForm({ form }) {
@@ -98,5 +99,9 @@ function NaverForm({ form }) {
     </section>
   );
 }
+
+NaverForm.propTypes = {
+  form: propTypes.object.isRequired,
+};
 
 export default NaverForm;

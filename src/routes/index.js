@@ -1,11 +1,8 @@
-import {
-  BrowserRouter as Router, Switch, Route
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AddNaver from '../pages/AddNaver';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import EditNaver from '../pages/EditNaver';
-
 
 const Routes = () => (
   <Router>

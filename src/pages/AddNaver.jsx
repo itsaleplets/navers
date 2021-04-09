@@ -1,15 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { FiChevronLeft } from "react-icons/fi";
 import { createNaver } from '../services/api';
+import NaversContext from '../context/NaversContext';
 import ModalFeedback from '../components/ModalFeedback';
 import NaverForm from '../components/NaverForm';
-import '../styles/AddNaver.css';
 import Header from '../components/Header';
-import NaversContext from '../context/NaversContext';
+import '../styles/AddNaver.css';
 
 function AddNaver() {
-  const history = useHistory();
   const { handleModal } = useContext(NaversContext);
   const [created, setCreated] = useState(false);
   const [token, setToken] = useState(false);
@@ -19,7 +16,6 @@ function AddNaver() {
     title: 'Naver criado',
     msg: 'Naver criado com sucesso!'
   };
-
   
   useEffect(() => {
     const getToken = localStorage.getItem('token');

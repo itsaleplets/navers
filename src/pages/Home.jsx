@@ -1,16 +1,15 @@
 import {  useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import '../styles/Home.css';
 import { showNavers } from '../services/api';
+import NaversContext from '../context/NaversContext';
 import NaverCard from '../components/NaverCard';
 import Header from '../components/Header';
-import NaversContext from '../context/NaversContext';
+import '../styles/Home.css';
 
 function Home() {
   const history = useHistory();
   const { opacity, updateCards } = useContext(NaversContext);
   const [navers, setNavers] = useState('');
-  
   useEffect(() => {
     const token = localStorage.getItem('token');
     if(!token) {

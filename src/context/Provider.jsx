@@ -1,23 +1,25 @@
-import propTypes from 'prop-types'
 import { useState } from 'react';
+import propTypes from 'prop-types'
 import NaversContext from './NaversContext';
 
 function NaversProvider({ children }) {
   const [opacity, setOpacity] = useState(false);
   const [modal, setModal] = useState(false);
   const [updateCards, setUpdateCards] = useState(true);
+
   const handleOpacity = () => {
     setOpacity(!opacity);
   };
 
   const handleModal = () => {
-    handleOpacity()
+    handleOpacity();
     if(!modal) {
       document.body.style.background = 'rgb(0, 0, 0, 0.5)';
-      return setModal(!modal);
+      setModal(!modal);
+    } else {
+      document.body.style.background = 'none';
+      setModal(!modal);
     };
-    document.body.style.background = 'none';
-    setModal(!modal);
   };
 
   const values = {
@@ -26,7 +28,7 @@ function NaversProvider({ children }) {
     modal,
     opacity,
     updateCards,
-    setUpdateCards
+    setUpdateCards,
   }
 
   return (

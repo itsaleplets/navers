@@ -2,7 +2,6 @@ import '../styles/Home.css';
 import logo from '../images/logo.png';
 
 function Header() {
-
   const logout = () => {
     localStorage.removeItem('token');
     window.location.reload();

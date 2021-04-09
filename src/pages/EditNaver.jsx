@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { createNaver } from '../services/api';
+import { editNaver } from '../services/api';
+import NaversContext from '../context/NaversContext';
 import ModalFeedback from '../components/ModalFeedback';
 import NaverForm from '../components/NaverForm';
-import '../styles/AddNaver.css';
 import Header from '../components/Header';
-import NaversContext from '../context/NaversContext';
+import '../styles/AddNaver.css';
 
 function AddNaver() {
   const { handleModal } = useContext(NaversContext);
   const [created, setCreated] = useState(false);
   const [token, setToken] = useState(false);
   const location = useLocation();
+  const { id, source } = location.state;
 
   const feedback = {
     state: setCreated,
@@ -22,11 +23,12 @@ function AddNaver() {
   useEffect(() => {
     const getToken = localStorage.getItem('token');
     setToken(getToken);
-  }, []);
+    source && handleModal();
+  },[]);
   
-  const editNaver = async (values) => {
-    const { id } = location.state;
-    const response = await createNaver(token, values, id);
+  const editNaverFunc = async (values) => {
+    const response = await editNaver(token, values, id);
+    console.log(response)
     if(response) {
       setCreated(true);
       handleModal();
@@ -35,7 +37,7 @@ function AddNaver() {
   
   const form = {
     title: 'Editar Naver',
-    apiFunction: editNaver,
+    apiFunction: editNaverFunc,
     state: created
   };
   

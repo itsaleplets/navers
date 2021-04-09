@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import NaversContext from '../context/NaversContext';
+import propTypes from 'prop-types'
 import '../styles/DeleteModal.css';
 
-function DeleteModal({id, setDeleteModal, getApiDelete }) {
+function DeleteModal({ id, setDeleteModal, getApiDelete }) {
   const [token, setToken] = useState('');
   const { handleModal } = useContext(NaversContext);
   
@@ -13,7 +14,7 @@ function DeleteModal({id, setDeleteModal, getApiDelete }) {
 
   const cancel = () => {
     handleModal();
-    setDeleteModal(false)
+    setDeleteModal(false);
   }
 
   return (
@@ -27,5 +28,11 @@ function DeleteModal({id, setDeleteModal, getApiDelete }) {
     </div>
   );
 }
+
+DeleteModal.propTypes = {
+  id: propTypes.string.isRequired,
+  setDeleteModal: propTypes.string.isRequired,
+  getApiDelete: propTypes.func.isRequired,
+};
 
 export default DeleteModal;

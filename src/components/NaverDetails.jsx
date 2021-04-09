@@ -1,27 +1,26 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom'
 import { ImBin2 } from "react-icons/im";
 import { MdEdit } from "react-icons/md";
 import { MdClose } from "react-icons/md";
+import propTypes from 'prop-types'
 import '../styles/NaverDetails.css';
 
-function NaverCard({ naver, showDetails }) {
+function NaverDetails({ naver, showDetails }) {
+  const history = useHistory();
   const [age, setAge] = useState('');
   const [companyTime, setCompanyTime] = useState('');
 
   useEffect(() => {
-    const { birthdate, admission_date } = naver
+    const { birthdate, admission_date } = naver;
     setCompanyTime(calculateDate(admission_date));
     setAge(calculateDate(birthdate));
   }, []);
 
-  const deleteNaver = () => {
-    console.log('ok')
-  }
-
   const calculateDate = (date) => {
     const newDate = new Date(date);
     return (Math.floor((Date.now() - newDate) / (31557600000)));
-  }
+  };
 
   return (
     <div className="details">
@@ -48,13 +47,12 @@ function NaverCard({ naver, showDetails }) {
 
         <div className="detailsIcon">
           <ImBin2
-            onClick={deleteNaver}
             className="icon"
           />
           <MdEdit
             className="icon"
             size={18}
-            // onClick={}
+            onClick={() => history.push('/editar', {id: naver.id, source: 'details'})}
           />
         </div>
       </section>
@@ -62,4 +60,9 @@ function NaverCard({ naver, showDetails }) {
   );
 }
 
-export default NaverCard;
+NaverDetails.propTypes = {
+  naver: propTypes.object.isRequired,
+  showDetails: propTypes.bool.isRequired,
+};
+
+export default NaverDetails;

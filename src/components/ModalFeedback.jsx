@@ -1,10 +1,11 @@
-import '../styles/ModalFeedback.css';
-import { MdClose } from "react-icons/md";
-import '../styles/DeleteModal.css';
 import { useContext } from 'react';
 import NaversContext from '../context/NaversContext';
+import { MdClose } from "react-icons/md";
+import propTypes from 'prop-types'
+import '../styles/ModalFeedback.css';
+import '../styles/DeleteModal.css';
 
-function NaverCard({ feedback }) {
+function ModalFeedback({ feedback }) {
   const { handleModal, updateCards, setUpdateCards } = useContext(NaversContext);
   const { title, msg, state } = feedback;
   const handleClick = () => {
@@ -22,4 +23,8 @@ function NaverCard({ feedback }) {
   );
 }
 
-export default NaverCard;
+ModalFeedback.propTypes = {
+  feedback: propTypes.object.isRequired,
+};
+
+export default ModalFeedback;
